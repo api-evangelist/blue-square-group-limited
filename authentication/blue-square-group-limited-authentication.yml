@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/gravity-technologies/api-spec ; grvt-skills SKILL prerequisites
+docs: https://api-docs.grvt.io/
+summary:
+  types: [apiKey, signature]
+  api_key_in: [cookie-session]
+  signature_scheme: ecdsa-secp256k1
+  account_types: [trading, funding]
+model: >-
+  GRVT uses a two-part authentication model. (1) An API Key (issued from the GRVT exchange UI,
+  e.g. GRVT_TRADING_API_KEY / GRVT_FUNDING_API_KEY) is exchanged for a session at the edge host
+  (POST https://edge.grvt.io/auth/api_key/login -> {sub_account_id} + session cookie;
+  edge.testnet.grvt.io on testnet). (2) State-changing requests (orders, transfers, withdrawals)
+  are additionally signed with the private key associated with the API key using Ethereum-style
+  ECDSA (secp256k1) signatures over an EIP-712 typed payload; session keys with scoped signer
+  permissions (trade, transfer) and expirations are supported.
+schemes:
+  - name: apiKeyLogin
+    type: apiKey
+    in: cookie
+    login_endpoint: https://edge.grvt.io/auth/api_key/login
+    testnet_login_endpoint: https://edge.testnet.grvt.io/auth/api_key/login
+    request: '{ "api_key": "<GRVT_TRADING_API_KEY>" }'
+    returns: session cookie + sub_account_id
+  - name: requestSignature
+    type: signature
+    scheme: ecdsa-secp256k1
+    payload_format: EIP-712 typed data
+    session_keys: true
+    signer_permissions: [trade, transfer]
+    notes: >-
+      Signature validation is enforced server-side (see error codes 2000-2008, 1012, 1400, 4015):
+      unauthorized signer, expired signature/session key, payload mismatch, chain-id, and per-permission
+      (trade/transfer) checks.
+public_endpoints: >-
+  All Market Data RPCs (instrument, ticker, orderbook, trade, candlestick, funding) are public
+  (auth_required=false); all Trading RPCs require authentication.
