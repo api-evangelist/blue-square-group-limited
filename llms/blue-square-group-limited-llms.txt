@@ -1,0 +1,33 @@
+# GRVT (Blue Square Group Limited)
+
+> GRVT (pronounced "gravity") is a licensed hybrid crypto derivatives exchange that pairs a
+> high-performance central limit order book with self-custody settlement on a zkSync-based L2.
+> It offers a public Market Data API and an authenticated Trading API (REST + WebSocket) covering
+> perpetual futures, spot, positions, transfers, and on-chain vaults. Blue Square Group Limited is
+> the corporate entity behind GRVT; the engineering org is Gravity Technologies (Singapore).
+
+## APIs
+- [Market Data API](https://market-data.grvt.io): Public market data — instruments, tickers, orderbooks, trades, candlesticks, funding rates.
+- [Trading API](https://trades.grvt.io): Authenticated trading — orders, positions, margin, transfers, withdrawals, vault investment.
+- [Auth / edge](https://edge.grvt.io): API-key login endpoint (POST /auth/api_key/login).
+
+## Docs
+- [API Docs](https://api-docs.grvt.io): Trading and market-data REST + WebSocket reference.
+- [GitHub org](https://github.com/gravity-technologies): SDKs, api-spec, and agent skills.
+
+## SDKs
+- [Python SDK — grvt-pysdk](https://pypi.org/project/grvt-pysdk/): pip install grvt-pysdk
+- [JS/TS client — @grvt/client](https://www.npmjs.com/package/@grvt/client): npm install @grvt/client
+
+## Agent Skills
+- [grvt-skills](https://github.com/gravity-technologies/grvt-skills): perpetual-trading, market-data, account-management, investment — `npx skills add gravity-technologies/grvt-skills`
+
+## Specs & artifacts (API Evangelist)
+- [Error code registry](https://raw.githubusercontent.com/api-evangelist/blue-square-group-limited/refs/heads/main/errors/blue-square-group-limited-problem-types.yml)
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/blue-square-group-limited/refs/heads/main/authentication/blue-square-group-limited-authentication.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/blue-square-group-limited/refs/heads/main/conventions/blue-square-group-limited-conventions.yml)
+- [WebSocket streams catalog](https://raw.githubusercontent.com/api-evangelist/blue-square-group-limited/refs/heads/main/asyncapi/blue-square-group-limited-streams.yml)
+- [Sandbox / testnet](https://raw.githubusercontent.com/api-evangelist/blue-square-group-limited/refs/heads/main/sandbox/blue-square-group-limited-sandbox.yml)
+
+## Security
+- [security.txt](https://grvt.io/.well-known/security.txt): security-report@grvt.io; private Bugcrowd bug bounty program.

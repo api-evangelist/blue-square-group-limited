@@ -1,8 +1,29 @@
 aid: blue-square-group-limited
 name: Blue Square Group Limited
-description: Blue Square Group Limited is a company surfaced as a portfolio company of 500-global and
-  added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Blue Square Group Limited is the corporate entity behind GRVT (pronounced "gravity"), a licensed
+  hybrid crypto derivatives exchange headquartered in Singapore and engineered by Gravity Technologies.
+  GRVT pairs a high-performance central limit order book with self-custody settlement on a zkSync-based
+  Layer 2, and exposes a public Market Data API and an authenticated Trading API over both REST and
+  WebSocket. The APIs cover perpetual futures and spot trading, order management (including bulk orders,
+  TP/SL and trigger orders), positions and margin, sub-account and funding-account summaries, transfers,
+  deposits and withdrawals, and on-chain vault investment and redemption. Authentication combines an
+  API-key login with Ethereum-style ECDSA (secp256k1 / EIP-712) request signing and scoped session keys.
+  First-party Python and JavaScript/TypeScript SDKs plus published agent skills round out the developer surface.
+  Surfaced as a portfolio company of 500 Global and enriched into the API Evangelist network.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/112316440?v=4
 url: https://raw.githubusercontent.com/api-evangelist/blue-square-group-limited/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,15 +33,98 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Cryptocurrency
+- Derivatives Exchange
+- Trading
+- Perpetual Futures
+- Market Data
+- Blockchain
+- WebSocket
+- Financial Services
+apis:
+- name: GRVT Market Data API
+  description: >-
+    Public market-data API for GRVT — instruments, currencies, supported assets, margin rules, mini/full
+    tickers, orderbook levels, trades, trade history, candlesticks, and funding rates. No authentication
+    required. Real-time equivalents are available over WebSocket streams.
+  humanURL: https://api-docs.grvt.io/
+  baseURL: https://market-data.grvt.io
+  tags:
+  - Market Data
+  - Cryptocurrency
+  - Trading
+  properties:
+  - type: AsyncAPI
+    url: asyncapi/blue-square-group-limited-streams.yml
+- name: GRVT Trading API
+  description: >-
+    Authenticated trading API for GRVT — create/cancel orders (single, bulk, TP/SL, trigger), open orders
+    and order history, fills, positions and position history, margin management, sub-account and funding
+    summaries, transfers/deposits/withdrawals, and vault invest/redeem. Requires API-key login plus ECDSA
+    request signing.
+  humanURL: https://api-docs.grvt.io/
+  baseURL: https://trades.grvt.io
+  tags:
+  - Trading
+  - Derivatives Exchange
+  - Perpetual Futures
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/blue-square-group-limited-domain-security.yml
 - type: Website
   url: https://grvt.io
+- type: Documentation
+  url: https://api-docs.grvt.io/
+- type: APIReference
+  url: https://api-docs.grvt.io/
+- type: GitHubOrganization
+  url: https://github.com/gravity-technologies
+- type: LLMsTxt
+  url: llms/blue-square-group-limited-llms.txt
+- type: Packages
+  url: packages/blue-square-group-limited-packages.yml
+- type: SDKs
+  url: packages/blue-square-group-limited-packages.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Authentication
+  url: authentication/blue-square-group-limited-authentication.yml
+- type: ErrorCatalog
+  url: errors/blue-square-group-limited-problem-types.yml
+- type: Conventions
+  url: conventions/blue-square-group-limited-conventions.yml
+- type: Idempotency
+  url: conventions/blue-square-group-limited-conventions.yml
+- type: DataModel
+  url: data-model/blue-square-group-limited-data-model.yml
+- type: Sandbox
+  url: sandbox/blue-square-group-limited-sandbox.yml
+- type: Webhooks
+  url: asyncapi/blue-square-group-limited-streams.yml
+- type: Conformance
+  url: conformance/blue-square-group-limited-conformance.yml
+- type: MCPServer
+  url: mcp/blue-square-group-limited-mcp.yml
+- type: Lifecycle
+  url: lifecycle/blue-square-group-limited-lifecycle.yml
+- type: WellKnown
+  url: well-known/blue-square-group-limited-well-known.yml
+- type: SecurityTxt
+  url: well-known/blue-square-group-limited-security.txt
+- type: VulnerabilityDisclosure
+  url: security/blue-square-group-limited-vulnerability-disclosure.yml
+- type: Security
+  url: https://grvt.io/.well-known/security.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

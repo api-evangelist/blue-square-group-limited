@@ -1,0 +1,5 @@
+Canonical: https://grvt.io/.well-known/security.txt
+Contact: mailto:security-report@grvt.io
+Expires: 2026-12-12T12:12:00Z
+Policy: For bug bounters: we currently accept report through a private  program on Bugcrowd only
+Preferred-Languages: en

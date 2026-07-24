@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: searched
+note: >-
+  /.well-known/ discovery probe across the GRVT website + API hosts. A valid RFC 9116 security.txt
+  is served on every host (identical content, saved once verbatim). No OpenID/OAuth/api-catalog/ai-plugin
+  documents are published (GRVT auth is API-key + signature, not OAuth/OIDC).
+hosts:
+  - https://grvt.io
+  - https://trades.grvt.io
+  - https://market-data.grvt.io
+  - https://api-docs.grvt.io
+documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: blue-square-group-limited-security.txt
+    hosts: [grvt.io, trades.grvt.io, market-data.grvt.io, api-docs.grvt.io]
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404

@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/gravity-technologies/api-spec ; grvt-skills SKILL prerequisites
+note: >-
+  GRVT publishes a full testnet environment (and an internal staging tier) mirroring production hosts,
+  selectable via the GRVT_ENV variable in the SDK. No fabricated credentials — developers provision their
+  own testnet API keys from the GRVT testnet exchange UI.
+environments:
+  - name: testnet
+    selector: GRVT_ENV=testnet
+    hosts:
+      edge: edge.testnet.grvt.io
+      trading: trades.testnet.grvt.io
+      market_data: market-data.testnet.grvt.io
+    credentials: Provision a testnet Trading/Funding API key + signing private key from the GRVT testnet exchange UI.
+  - name: staging
+    selector: internal
+    hosts:
+      trading: trades.staging.gravitymarkets.io
+      market_data: market-data.staging.gravitymarkets.io
+  - name: prod
+    selector: GRVT_ENV=prod
+    hosts:
+      edge: edge.grvt.io
+      trading: trades.grvt.io
+      market_data: market-data.grvt.io
+env_vars:
+  - GRVT_ENV
+  - GRVT_TRADING_API_KEY
+  - GRVT_TRADING_PRIVATE_KEY
+  - GRVT_FUNDING_API_KEY
+  - GRVT_FUNDING_PRIVATE_KEY

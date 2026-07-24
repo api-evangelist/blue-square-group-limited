@@ -1,0 +1,161 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: https://github.com/gravity-technologies/api-spec
+note: No official hosted GRVT MCP server found. Candidate tool list derived one-per-RPC from the GRVT api-spec gateways. GRVT does publish native Agent Skills (see skills/) installable via the open skills ecosystem.
+server:
+  name: grvt
+  transport: http
+  url: null
+tool_count: 50
+tools:
+- name: get_instrument
+  description: MarketData RPC RPCGetInstrumentV1 (route /instrument, auth_required=False)
+  source_operation: api-spec:MarketData/instrument (RPCGetInstrumentV1)
+- name: get_all_instruments
+  description: MarketData RPC RPCGetAllInstrumentsV1 (route /all_instruments, auth_required=False)
+  source_operation: api-spec:MarketData/all_instruments (RPCGetAllInstrumentsV1)
+- name: get_filtered_instruments
+  description: MarketData RPC RPCGetFilteredInstrumentsV1 (route /instruments, auth_required=False)
+  source_operation: api-spec:MarketData/instruments (RPCGetFilteredInstrumentsV1)
+- name: get_currency
+  description: MarketData RPC RPCGetCurrencyV1 (route /currency, auth_required=False)
+  source_operation: api-spec:MarketData/currency (RPCGetCurrencyV1)
+- name: get_supported_assets
+  description: MarketData RPC RPCGetSupportedAssetsV1 (route /supported_assets, auth_required=False)
+  source_operation: api-spec:MarketData/supported_assets (RPCGetSupportedAssetsV1)
+- name: get_margin_rules
+  description: MarketData RPC RPCGetMarginRulesV1 (route /margin_rules, auth_required=False)
+  source_operation: api-spec:MarketData/margin_rules (RPCGetMarginRulesV1)
+- name: mini_ticker
+  description: MarketData RPC RPCMiniTickerV1 (route /mini, auth_required=False)
+  source_operation: api-spec:MarketData/mini (RPCMiniTickerV1)
+- name: ticker
+  description: MarketData RPC RPCTickerV1 (route /ticker, auth_required=False)
+  source_operation: api-spec:MarketData/ticker (RPCTickerV1)
+- name: orderbook_levels
+  description: MarketData RPC RPCOrderbookLevelsV1 (route /book, auth_required=False)
+  source_operation: api-spec:MarketData/book (RPCOrderbookLevelsV1)
+- name: trade
+  description: MarketData RPC RPCTradeV1 (route /trade, auth_required=False)
+  source_operation: api-spec:MarketData/trade (RPCTradeV1)
+- name: trade_history
+  description: MarketData RPC RPCTradeHistoryV1 (route /trade_history, auth_required=False)
+  source_operation: api-spec:MarketData/trade_history (RPCTradeHistoryV1)
+- name: candlestick
+  description: MarketData RPC RPCCandlestickV1 (route /kline, auth_required=False)
+  source_operation: api-spec:MarketData/kline (RPCCandlestickV1)
+- name: funding_rate
+  description: MarketData RPC RPCFundingRateV1 (route /funding, auth_required=False)
+  source_operation: api-spec:MarketData/funding (RPCFundingRateV1)
+- name: create_order
+  description: Trading RPC RPCCreateOrderV1 (route /create_order, auth_required=True)
+  source_operation: api-spec:Trading/create_order (RPCCreateOrderV1)
+- name: cancel_order
+  description: Trading RPC RPCCancelOrderV1 (route /cancel_order, auth_required=True)
+  source_operation: api-spec:Trading/cancel_order (RPCCancelOrderV1)
+- name: cancel_all_orders
+  description: Trading RPC RPCCancelAllOrdersV1 (route /cancel_all_orders, auth_required=True)
+  source_operation: api-spec:Trading/cancel_all_orders (RPCCancelAllOrdersV1)
+- name: get_order
+  description: Trading RPC RPCGetOrderV1 (route /order, auth_required=True)
+  source_operation: api-spec:Trading/order (RPCGetOrderV1)
+- name: open_orders
+  description: Trading RPC RPCOpenOrdersV1 (route /open_orders, auth_required=True)
+  source_operation: api-spec:Trading/open_orders (RPCOpenOrdersV1)
+- name: order_history
+  description: Trading RPC RPCOrderHistoryV1 (route /order_history, auth_required=True)
+  source_operation: api-spec:Trading/order_history (RPCOrderHistoryV1)
+- name: cancel_on_disconnect
+  description: Trading RPC RPCCancelOnDisconnectV1 (route /cancel_on_disconnect, auth_required=True)
+  source_operation: api-spec:Trading/cancel_on_disconnect (RPCCancelOnDisconnectV1)
+- name: bulk_orders
+  description: Trading RPC RPCBulkOrdersV2 (route /bulk_orders, auth_required=True)
+  source_operation: api-spec:Trading/bulk_orders (RPCBulkOrdersV2)
+- name: fill_history
+  description: Trading RPC RPCFillHistoryV1 (route /fill_history, auth_required=True)
+  source_operation: api-spec:Trading/fill_history (RPCFillHistoryV1)
+- name: funding_payment_history
+  description: Trading RPC RPCFundingPaymentHistoryV1 (route /funding_payment_history, auth_required=True)
+  source_operation: api-spec:Trading/funding_payment_history (RPCFundingPaymentHistoryV1)
+- name: positions
+  description: Trading RPC RPCPositionsV1 (route /positions, auth_required=True)
+  source_operation: api-spec:Trading/positions (RPCPositionsV1)
+- name: position_history
+  description: Trading RPC RPCPositionHistoryV1 (route /position_history, auth_required=True)
+  source_operation: api-spec:Trading/position_history (RPCPositionHistoryV1)
+- name: set_position_config
+  description: Trading RPC RPCSetPositionConfigV1 (route /set_position_config, auth_required=True)
+  source_operation: api-spec:Trading/set_position_config (RPCSetPositionConfigV1)
+- name: add_position_margin
+  description: Trading RPC RPCAddPositionMarginV1 (route /add_position_margin, auth_required=True)
+  source_operation: api-spec:Trading/add_position_margin (RPCAddPositionMarginV1)
+- name: get_position_margin_limits
+  description: Trading RPC RPCGetPositionMarginLimitsV1 (route /get_position_margin_limits, auth_required=True)
+  source_operation: api-spec:Trading/get_position_margin_limits (RPCGetPositionMarginLimitsV1)
+- name: deposit_history
+  description: Trading RPC RPCDepositHistoryV1 (route /deposit_history, auth_required=True)
+  source_operation: api-spec:Trading/deposit_history (RPCDepositHistoryV1)
+- name: transfer
+  description: Trading RPC RPCTransferV1 (route /transfer, auth_required=True)
+  source_operation: api-spec:Trading/transfer (RPCTransferV1)
+- name: transfer_history
+  description: Trading RPC RPCTransferHistoryV1 (route /transfer_history, auth_required=True)
+  source_operation: api-spec:Trading/transfer_history (RPCTransferHistoryV1)
+- name: withdrawal
+  description: Trading RPC RPCWithdrawalV1 (route /withdrawal, auth_required=True)
+  source_operation: api-spec:Trading/withdrawal (RPCWithdrawalV1)
+- name: withdrawal_history
+  description: Trading RPC RPCWithdrawalHistoryV1 (route /withdrawal_history, auth_required=True)
+  source_operation: api-spec:Trading/withdrawal_history (RPCWithdrawalHistoryV1)
+- name: sub_account_summary
+  description: Trading RPC RPCSubAccountSummaryV1 (route /account_summary, auth_required=True)
+  source_operation: api-spec:Trading/account_summary (RPCSubAccountSummaryV1)
+- name: spot_account_summary
+  description: Trading RPC RPCSpotAccountSummaryV1 (route /spot_account_summary, auth_required=True)
+  source_operation: api-spec:Trading/spot_account_summary (RPCSpotAccountSummaryV1)
+- name: aggregated_account_summary
+  description: Trading RPC RPCAggregatedAccountSummaryV1 (route /aggregated_account_summary, auth_required=True)
+  source_operation: api-spec:Trading/aggregated_account_summary (RPCAggregatedAccountSummaryV1)
+- name: funding_account_summary
+  description: Trading RPC RPCFundingAccountSummaryV1 (route /funding_account_summary, auth_required=True)
+  source_operation: api-spec:Trading/funding_account_summary (RPCFundingAccountSummaryV1)
+- name: set_derisk_m_m_ratio
+  description: Trading RPC RPCSetDeriskMMRatioV1 (route /set_derisk_mm_ratio, auth_required=True)
+  source_operation: api-spec:Trading/set_derisk_mm_ratio (RPCSetDeriskMMRatioV1)
+- name: get_sub_accounts
+  description: Trading RPC RPCGetSubAccountsV1 (route /get_sub_accounts, auth_required=True)
+  source_operation: api-spec:Trading/get_sub_accounts (RPCGetSubAccountsV1)
+- name: get_all_initial_leverage
+  description: Trading RPC RPCGetAllInitialLeverageV1 (route /get_all_initial_leverage, auth_required=True)
+  source_operation: api-spec:Trading/get_all_initial_leverage (RPCGetAllInitialLeverageV1)
+- name: set_initial_leverage
+  description: Trading RPC RPCSetInitialLeverageV1 (route /set_initial_leverage, auth_required=True)
+  source_operation: api-spec:Trading/set_initial_leverage (RPCSetInitialLeverageV1)
+- name: vault_burn_tokens
+  description: Trading RPC RPCVaultBurnTokensV1 (route /vault_burn_tokens, auth_required=True)
+  source_operation: api-spec:Trading/vault_burn_tokens (RPCVaultBurnTokensV1)
+- name: vault_invest
+  description: Trading RPC RPCVaultInvestV1 (route /vault_invest, auth_required=True)
+  source_operation: api-spec:Trading/vault_invest (RPCVaultInvestV1)
+- name: vault_investor_summary
+  description: Trading RPC RPCVaultInvestorSummaryV1 (route /vault_investor_summary, auth_required=True)
+  source_operation: api-spec:Trading/vault_investor_summary (RPCVaultInvestorSummaryV1)
+- name: vault_redeem
+  description: Trading RPC RPCVaultRedeemV1 (route /vault_redeem, auth_required=True)
+  source_operation: api-spec:Trading/vault_redeem (RPCVaultRedeemV1)
+- name: vault_redeem_cancel
+  description: Trading RPC RPCVaultRedeemCancelV1 (route /vault_redeem_cancel, auth_required=True)
+  source_operation: api-spec:Trading/vault_redeem_cancel (RPCVaultRedeemCancelV1)
+- name: vault_redemption_queue
+  description: Trading RPC RPCVaultRedemptionQueueV1 (route /vault_view_redemption_queue, auth_required=True)
+  source_operation: api-spec:Trading/vault_view_redemption_queue (RPCVaultRedemptionQueueV1)
+- name: vault_manager_investment_history
+  description: Trading RPC RPCVaultManagerInvestmentHistoryV1 (route /vault_manager_investor_history, auth_required=True)
+  source_operation: api-spec:Trading/vault_manager_investor_history (RPCVaultManagerInvestmentHistoryV1)
+- name: get_authorized_builders
+  description: Trading RPC RPCGetAuthorizedBuildersV1 (route /get_authorized_builders, auth_required=True)
+  source_operation: api-spec:Trading/get_authorized_builders (RPCGetAuthorizedBuildersV1)
+- name: builder_fill_history
+  description: Trading RPC RPCBuilderFillHistoryV1 (route /builder_fill_history, auth_required=True)
+  source_operation: api-spec:Trading/builder_fill_history (RPCBuilderFillHistoryV1)

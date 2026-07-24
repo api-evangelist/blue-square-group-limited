@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/gravity-technologies
+note: First-party GRVT client libraries. Verified on the public registries; both repos live under the gravity-technologies GitHub org.
+packages:
+  - language: python
+    registry: pypi
+    name: grvt-pysdk
+    version: 0.2.1
+    url: https://pypi.org/project/grvt-pysdk/
+    repository: https://github.com/gravity-technologies/grvt-pysdk
+    install: pip install grvt-pysdk
+    official: true
+    description: GRVT's Python SDK library (REST + WebSocket, CCXT-style client).
+  - language: javascript
+    registry: npm
+    name: "@grvt/client"
+    version: 2.0.0
+    url: https://www.npmjs.com/package/@grvt/client
+    repository: https://github.com/gravity-technologies/grvt-js-client
+    install: npm install @grvt/client
+    official: true
+    description: Node.js & JavaScript client for GRVT REST APIs & WebSockets.

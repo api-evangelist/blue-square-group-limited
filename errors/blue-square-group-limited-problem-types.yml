@@ -1,0 +1,565 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/gravity-technologies/api-spec/blob/main/src/codegen/apispec.json
+format: grvt-error-code
+envelope:
+  description: Errors are returned as {code, message, status} where code is a stable numeric GRVT error code, message is human-readable, and status is the HTTP status.
+  fields:
+  - code
+  - message
+  - status
+note: Numeric error-code registry harvested from the GRVT api-spec (gateway RPC on_request_errors/on_response_errors). Non-payments sibling of a decline-code catalog; complements HTTP status semantics.
+count: 138
+problems:
+- code: 1000
+  http_status: 401
+  message: You need to authenticate prior to using this functionality
+  area: Authentication, authorization & platform
+- code: 1001
+  http_status: 403
+  message: You are not authorized to access this functionality
+  area: Authentication, authorization & platform
+- code: 1002
+  http_status: 500
+  message: Internal Server Error
+  area: Authentication, authorization & platform
+- code: 1003
+  http_status: 400
+  message: Request could not be processed due to malformed syntax
+  area: Authentication, authorization & platform
+- code: 1004
+  http_status: 404
+  message: Data Not Found
+  area: Authentication, authorization & platform
+- code: 1005
+  http_status: 500
+  message: Unknown Error
+  area: Authentication, authorization & platform
+- code: 1006
+  http_status: 429
+  message: You have surpassed the allocated rate limit for your tier
+  area: Authentication, authorization & platform
+- code: 1008
+  http_status: 401
+  message: Your IP has not been whitelisted for access
+  area: Authentication, authorization & platform
+- code: 1009
+  http_status: 503
+  message: We are temporarily deactivating this API endpoint, please try again later
+  area: Authentication, authorization & platform
+- code: 1012
+  http_status: 400
+  message: Invalid signature chain ID
+  area: Authentication, authorization & platform
+- code: 1014
+  http_status: 504
+  message: Upstream data service timed out, please try again
+  area: Authentication, authorization & platform
+- code: 1400
+  http_status: 403
+  message: Signer does not have trade permission
+  area: Authentication, authorization & platform
+- code: 2000
+  http_status: 403
+  message: Signature is from an unauthorized signer
+  area: Order & trading validation
+- code: 2001
+  http_status: 403
+  message: Signature has expired
+  area: Order & trading validation
+- code: 2002
+  http_status: 403
+  message: Signature does not match payload
+  area: Order & trading validation
+- code: 2003
+  http_status: 403
+  message: Order sub account does not match logged in user
+  area: Order & trading validation
+- code: 2004
+  http_status: 403
+  message: Signature is from an expired session key
+  area: Order & trading validation
+- code: 2005
+  http_status: 403
+  message: Signature V must be 27/28
+  area: Order & trading validation
+- code: 2006
+  http_status: 403
+  message: Signature R/S must have exactly 64 characters long without 0x prefix
+  area: Order & trading validation
+- code: 2007
+  http_status: 403
+  message: Signature S must be in the lower half of the curve
+  area: Order & trading validation
+- code: 2008
+  http_status: 403
+  message: Signature exceeds maximum allowed duration.
+  area: Order & trading validation
+- code: 2010
+  http_status: 400
+  message: Order ID should be empty when creating an order
+  area: Order & trading validation
+- code: 2011
+  http_status: 400
+  message: Client Order ID should be supplied when creating an order
+  area: Order & trading validation
+- code: 2012
+  http_status: 400
+  message: Client Order ID overlaps with existing active order
+  area: Order & trading validation
+- code: 2020
+  http_status: 400
+  message: Market Order must always be supplied without a limit price
+  area: Order & trading validation
+- code: 2021
+  http_status: 400
+  message: Limit Order must always be supplied with a limit price
+  area: Order & trading validation
+- code: 2030
+  http_status: 400
+  message: Orderbook Orders must have a TimeInForce of GTT/IOC/FOK
+  area: Order & trading validation
+- code: 2031
+  http_status: 400
+  message: RFQ Orders must have a TimeInForce of GTT/AON/IOC/FOK
+  area: Order & trading validation
+- code: 2032
+  http_status: 400
+  message: Post Only can only be set to true for GTT/AON orders
+  area: Order & trading validation
+- code: 2040
+  http_status: 400
+  message: Order must contain at least one leg
+  area: Order & trading validation
+- code: 2041
+  http_status: 400
+  message: Order Legs must be sorted by Derivative.Instrument/Underlying/BaseCurrency/Expiration/StrikePrice
+  area: Order & trading validation
+- code: 2042
+  http_status: 400
+  message: Orderbook Orders must contain only one leg
+  area: Order & trading validation
+- code: 2050
+  http_status: 400
+  message: Order state must be empty upon creation
+  area: Order & trading validation
+- code: 2051
+  http_status: 400
+  message: Order execution metadata must be empty upon creation
+  area: Order & trading validation
+- code: 2060
+  http_status: 400
+  message: Order Legs contain one or more inactive derivative
+  area: Order & trading validation
+- code: 2061
+  http_status: 400
+  message: Unsupported Instrument Requested
+  area: Order & trading validation
+- code: 2062
+  http_status: 400
+  message: Order size smaller than min size
+  area: Order & trading validation
+- code: 2063
+  http_status: 400
+  message: Order size smaller than min block size in block trade venue
+  area: Order & trading validation
+- code: 2064
+  http_status: 400
+  message: Invalid limit price tick
+  area: Order & trading validation
+- code: 2065
+  http_status: 400
+  message: Order size too granular
+  area: Order & trading validation
+- code: 2066
+  http_status: 400
+  message: Order below minimum notional. Please try again with a higher price or size.
+  area: Order & trading validation
+- code: 2067
+  http_status: 400
+  message: Order below minimum notional. Please try reducing your position again with a higher price or size.
+  area: Order & trading validation
+- code: 2070
+  http_status: 400
+  message: Liquidation Order is not supported
+  area: Order & trading validation
+- code: 2080
+  http_status: 400
+  message: Insufficient margin to create order
+  area: Order & trading validation
+- code: 2081
+  http_status: 400
+  message: Order Fill would result in exceeding maximum position size
+  area: Order & trading validation
+- code: 2082
+  http_status: 400
+  message: Pre-order check failed
+  area: Order & trading validation
+- code: 2083
+  http_status: 400
+  message: Order Fill would result in exceeding maximum position size under current configurable leverage tier
+  area: Order & trading validation
+- code: 2084
+  http_status: 400
+  message: Post-order check failed
+  area: Order & trading validation
+- code: 2090
+  http_status: 429
+  message: Max open orders exceeded
+  area: Order & trading validation
+- code: 2100
+  http_status: 400
+  message: Invalid initial leverage
+  area: Order & trading validation
+- code: 2101
+  http_status: 400
+  message: Vaults cannot configure leverage
+  area: Order & trading validation
+- code: 2102
+  http_status: 400
+  message: Margin type change failed, has open position for this instrument
+  area: Order & trading validation
+- code: 2103
+  http_status: 400
+  message: Margin type change failed, has open orders for this instrument
+  area: Order & trading validation
+- code: 2104
+  http_status: 400
+  message: Margin type not supported
+  area: Order & trading validation
+- code: 2105
+  http_status: 400
+  message: Margin type change failed
+  area: Order & trading validation
+- code: 2107
+  http_status: 400
+  message: Attempted to set leverage below minimum
+  area: Order & trading validation
+- code: 2108
+  http_status: 400
+  message: Attempted to set leverage above maximum
+  area: Order & trading validation
+- code: 2110
+  http_status: 400
+  message: Invalid trigger by
+  area: Order & trading validation
+- code: 2111
+  http_status: 400
+  message: Unsupported trigger by
+  area: Order & trading validation
+- code: 2112
+  http_status: 400
+  message: Invalid trigger order
+  area: Order & trading validation
+- code: 2113
+  http_status: 400
+  message: Trigger price must be non-zero
+  area: Order & trading validation
+- code: 2114
+  http_status: 400
+  message: Invalid position linked TPSL orders, position linked TPSL must be a reduce-only order
+  area: Order & trading validation
+- code: 2115
+  http_status: 400
+  message: Invalid position linked TPSL orders, position linked TPSL must not have smaller size than the position
+  area: Order & trading validation
+- code: 2116
+  http_status: 400
+  message: Position linked TPSL order for this asset already exists
+  area: Order & trading validation
+- code: 2117
+  http_status: 400
+  message: Position linked TPSL orders must be created from web or mobile clients
+  area: Order & trading validation
+- code: 2222
+  http_status: 400
+  message: Order is not a TPSL order
+  area: Order & trading validation
+- code: 2232
+  http_status: 400
+  message: Invalid position linked TPSL orders, position linked TPSL must not have order linkage
+  area: Order & trading validation
+- code: 2233
+  http_status: 400
+  message: Both order ID and client order ID cannot be provided
+  area: Order & trading validation
+- code: 2234
+  http_status: 400
+  message: Bulk create orders must have the same instrument
+  area: Order & trading validation
+- code: 2235
+  http_status: 400
+  message: Bulk orders count exceeds the maximum allowed
+  area: Order & trading validation
+- code: 2236
+  http_status: 400
+  message: Bulk orders does not support trigger order
+  area: Order & trading validation
+- code: 2237
+  http_status: 400
+  message: Bulk orders must be from API source
+  area: Order & trading validation
+- code: 2238
+  http_status: 400
+  message: Split TPSL orders must not be position-linked TPSL
+  area: Order & trading validation
+- code: 2239
+  http_status: 400
+  message: Split TPSL orders must be reduce-only
+  area: Order & trading validation
+- code: 2240
+  http_status: 400
+  message: If creating split TPSL orders, can only specify split TPSL orders in the creation array
+  area: Order & trading validation
+- code: 2241
+  http_status: 400
+  message: Split TPSL order count exceeds maximum allowed set size
+  area: Order & trading validation
+- code: 2242
+  http_status: 400
+  message: Split TPSL functionality not supported; you may be using a deprecated API, or this functionality is temporarily disabled
+  area: Order & trading validation
+- code: 2243
+  http_status: 400
+  message: Split TPSL set already exists for this asset. Please modify the existing set of split TPSL orders.
+  area: Order & trading validation
+- code: 2244
+  http_status: 400
+  message: Split TPSL creation only allowed for instruments with already-existing positions.
+  area: Order & trading validation
+- code: 2245
+  http_status: 400
+  message: Split TPSL creation exceeds position size.
+  area: Order & trading validation
+- code: 2246
+  http_status: 400
+  message: Split TPSL modification requires all existing split TPSL orders to be cancelled
+  area: Order & trading validation
+- code: 2300
+  http_status: 400
+  message: Order cancel time-to-live settings currently disabled.
+  area: Order & trading validation
+- code: 2301
+  http_status: 400
+  message: Order cancel time-to-live exceeds maximum allowed value.
+  area: Order & trading validation
+- code: 2400
+  http_status: 400
+  message: Reduce only order with no position
+  area: Order & trading validation
+- code: 2401
+  http_status: 400
+  message: Reduce only order must not increase position size
+  area: Order & trading validation
+- code: 2402
+  http_status: 400
+  message: Reduce only order size exceeds maximum allowed value
+  area: Order & trading validation
+- code: 2413
+  http_status: 400
+  message: Replace order failed, number of orders provided does not match the number of orders to replace
+  area: Order & trading validation
+- code: 2450
+  http_status: 400
+  message: Spot order is not supported
+  area: Order & trading validation
+- code: 2451
+  http_status: 400
+  message: Spot order must not be a reduce-only order
+  area: Order & trading validation
+- code: 2452
+  http_status: 400
+  message: Spot order must not be a TPSL order
+  area: Order & trading validation
+- code: 2453
+  http_status: 400
+  message: Spot trading is blocked during socialized loss
+  area: Order & trading validation
+- code: 3000
+  http_status: 400
+  message: Instrument is invalid
+  area: Instrument & market data
+- code: 3004
+  http_status: 500
+  message: Instrument does not have a valid maintenance margin configuration
+  area: Instrument & market data
+- code: 3005
+  http_status: 500
+  message: Instrument's underlying currency does not have a valid balance decimal configuration
+  area: Instrument & market data
+- code: 3006
+  http_status: 500
+  message: Instrument's quote currency does not have a valid balance decimal configuration
+  area: Instrument & market data
+- code: 3007
+  http_status: 400
+  message: API is not applicable for spot instruments
+  area: Instrument & market data
+- code: 3021
+  http_status: 400
+  message: Either order ID or client order ID must be supplied
+  area: Instrument & market data
+- code: 3031
+  http_status: 400
+  message: Depth is invalid
+  area: Instrument & market data
+- code: 3042
+  http_status: 400
+  message: Candlestick type is not applicable for spot instruments
+  area: Instrument & market data
+- code: 4000
+  http_status: 400
+  message: Insufficient balance to complete transfer
+  area: Transfer & balance
+- code: 4002
+  http_status: 400
+  message: Transfer failed with an unrefined failure reason, please report to GRVT
+  area: Transfer & balance
+- code: 4004
+  http_status: 400
+  message: Both transfer wallet types must be provided
+  area: Transfer & balance
+- code: 4005
+  http_status: 400
+  message: Invalid wallet type for funding account
+  area: Transfer & balance
+- code: 4006
+  http_status: 400
+  message: Invalid wallet type for sub account
+  area: Transfer & balance
+- code: 4007
+  http_status: 400
+  message: Transfer failed because signature is an exact duplicate of another recently-observed transfer.
+  area: Transfer & balance
+- code: 4008
+  http_status: 400
+  message: Currency is not allowed in the target wallet type
+  area: Transfer & balance
+- code: 4009
+  http_status: 400
+  message: Please specify the transfer type
+  area: Transfer & balance
+- code: 4010
+  http_status: 400
+  message: This wallet is not supported. Please try another wallet.
+  area: Transfer & balance
+- code: 4014
+  http_status: 400
+  message: This currency has been disabled for transfers and withdrawals.
+  area: Transfer & balance
+- code: 4015
+  http_status: 403
+  message: Signer does not have transfer permission
+  area: Transfer & balance
+- code: 5000
+  http_status: 400
+  message: Transfer Metadata does not match the expected structure.
+  area: Transfer metadata
+- code: 5001
+  http_status: 400
+  message: Transfer Provider does not match the expected provider.
+  area: Transfer metadata
+- code: 5002
+  http_status: 400
+  message: Direction of the transfer does not match the expected direction.
+  area: Transfer metadata
+- code: 5003
+  http_status: 400
+  message: Endpoint account ID is invalid.
+  area: Transfer metadata
+- code: 5004
+  http_status: 400
+  message: Funding account does not exist in our system.
+  area: Transfer metadata
+- code: 5005
+  http_status: 400
+  message: Invalid ChainID for the transfer request.
+  area: Transfer metadata
+- code: 6000
+  http_status: 400
+  message: Countdown time is bigger than 300s supported
+  area: Risk & derisk
+- code: 6100
+  http_status: 400
+  message: Derisk MM Ratio is out of range
+  area: Risk & derisk
+- code: 7000
+  http_status: 400
+  message: Vault ID provided is invalid and does not belong to any vault
+  area: Vault, margin & transfer accounts
+- code: 7001
+  http_status: 400
+  message: Vault does not have sufficient LP token balance
+  area: Vault, margin & transfer accounts
+- code: 7002
+  http_status: 400
+  message: User has an ongoing redemption
+  area: Vault, margin & transfer accounts
+- code: 7003
+  http_status: 400
+  message: This vault has been delisted/closed.
+  area: Vault, margin & transfer accounts
+- code: 7004
+  http_status: 400
+  message: This investment would cause the vault to exceed its valuation cap.
+  area: Vault, margin & transfer accounts
+- code: 7005
+  http_status: 400
+  message: You are attempting to burn more vault tokens than you own.
+  area: Vault, margin & transfer accounts
+- code: 7006
+  http_status: 400
+  message: You are attempting to burn vault tokens whilst having an active redemption request.
+  area: Vault, margin & transfer accounts
+- code: 7007
+  http_status: 400
+  message: The investor is not an LP for this vault.
+  area: Vault, margin & transfer accounts
+- code: 7100
+  http_status: 500
+  message: Unknown transaction type
+  area: Vault, margin & transfer accounts
+- code: 7101
+  http_status: 400
+  message: Transfer account not found
+  area: Vault, margin & transfer accounts
+- code: 7102
+  http_status: 400
+  message: Transfer sub-account not found
+  area: Vault, margin & transfer accounts
+- code: 7103
+  http_status: 500
+  message: Charged trading fee below the config minimum
+  area: Vault, margin & transfer accounts
+- code: 7104
+  http_status: 400
+  message: Transfer sub-account doesn't belong to the transfer main account
+  area: Vault, margin & transfer accounts
+- code: 7304
+  http_status: 400
+  message: Only position-reducing orders (`reduce_only` as true) allowed for this asset right now.
+  area: Vault, margin & transfer accounts
+- code: 7450
+  http_status: 400
+  message: Add margin failed
+  area: Vault, margin & transfer accounts
+- code: 7451
+  http_status: 400
+  message: Add margin to empty position
+  area: Vault, margin & transfer accounts
+- code: 7452
+  http_status: 400
+  message: Add margin to non isolated position
+  area: Vault, margin & transfer accounts
+- code: 7453
+  http_status: 400
+  message: Max addable amount exceeded
+  area: Vault, margin & transfer accounts
+- code: 7454
+  http_status: 400
+  message: Max removable amount exceeded
+  area: Vault, margin & transfer accounts
+- code: 7455
+  http_status: 400
+  message: Not isolated margin position
+  area: Vault, margin & transfer accounts

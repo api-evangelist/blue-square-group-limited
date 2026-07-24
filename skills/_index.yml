@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/gravity-technologies/grvt-skills
+note: >-
+  Provider-published Agent Skills, saved verbatim from the gravity-technologies/grvt-skills
+  repository (open "skills" ecosystem; installable via `npx skills add gravity-technologies/grvt-skills`).
+  Each skill grounds on the grvt-pysdk and real GRVT RPC operations.
+skills:
+  - file: blue-square-group-limited-perpetual-trading.md
+    name: perpetual-trading
+    description: Place, cancel, and manage perpetual futures orders on GRVT.
+    api: Trading API (trades.grvt.io)
+    operations: [RPCCreateOrderV1, RPCCancelOrderV1, RPCCancelAllOrdersV1, RPCGetOrderV1, RPCOpenOrdersV1, RPCOrderHistoryV1]
+  - file: blue-square-group-limited-market-data.md
+    name: market-data
+    description: Fetch prices, orderbooks, trades, candlesticks, funding rates.
+    api: Market Data API (market-data.grvt.io)
+    operations: [RPCTickerV1, RPCMiniTickerV1, RPCOrderbookLevelsV1, RPCTradeV1, RPCCandlestickV1, RPCFundingRateV1, RPCGetAllInstrumentsV1]
+  - file: blue-square-group-limited-account-management.md
+    name: account-management
+    description: Check balances, positions, margin, PnL, and trade history.
+    api: Trading API (trades.grvt.io)
+    operations: [RPCSubAccountSummaryV1, RPCPositionsV1, RPCAddPositionMarginV1, RPCFillHistoryV1, RPCFundingPaymentHistoryV1]
+  - file: blue-square-group-limited-investment.md
+    name: investment
+    description: Invest in and redeem from GRVT vaults.
+    api: Trading API (trades.grvt.io)
+    operations: [RPCVaultInvestV1, RPCVaultRedeemV1, RPCVaultRedeemCancelV1, RPCVaultInvestorSummaryV1, RPCVaultRedemptionQueueV1]

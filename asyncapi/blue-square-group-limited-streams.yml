@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/gravity-technologies/api-spec (artifacts/apidocs/market_data_streams.md, trading_streams.md)
+note: >-
+  GRVT exposes a real-time event surface over WebSocket (JSON-RPC subscribe). This is a streaming
+  event catalog, not RFC-style HTTP webhooks; captured here to record the async/event surface.
+  No AsyncAPI document is published by the provider, so none is fabricated.
+spec_type: WebSocketStreams
+transport: websocket
+subscribe_style: JSON-RPC subscribe / unsubscribe with a "stream" name and a "feed" selector
+hosts:
+  market_data: wss://market-data.grvt.io/ws
+  trading: wss://trades.grvt.io/ws
+channels:
+  market_data:
+    - {stream: v1.mini.s, name: Mini ticker (snapshot)}
+    - {stream: v1.mini.d, name: Mini ticker (delta)}
+    - {stream: v1.ticker.s, name: Ticker (snapshot)}
+    - {stream: v1.ticker.d, name: Ticker (delta)}
+    - {stream: v1.book.s, name: Orderbook levels (snapshot)}
+    - {stream: v1.book.d, name: Orderbook levels (delta)}
+    - {stream: v1.trade, name: Public trades}
+    - {stream: v1.candle, name: Candlesticks}
+  trading:
+    - {stream: v1.order, name: Order feed}
+    - {stream: v1.state, name: Order state feed}
+    - {stream: v1.cancel, name: Cancel status feed}
+    - {stream: v1.fill, name: Fill feed}
+    - {stream: v1.position, name: Positions feed}
+    - {stream: v1.deposit, name: Deposit feed}
+    - {stream: v1.transfer, name: Transfer feed}
+    - {stream: v1.withdrawal, name: Withdrawal feed}

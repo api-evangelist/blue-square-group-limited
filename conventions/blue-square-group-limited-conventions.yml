@@ -1,0 +1,37 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/gravity-technologies/api-spec ; https://api-docs.grvt.io/
+note: >-
+  Cross-cutting request/response semantics for the GRVT REST + WebSocket APIs, derived from the
+  api-spec and the published SDK/skills. Cross-links errors/, authentication/, asyncapi/.
+authentication:
+  style: api-key-login-plus-request-signature
+  see: authentication/blue-square-group-limited-authentication.yml
+versioning:
+  scheme: uri-path-and-rpc-version
+  current: v1
+  detail: RPC routes are unversioned paths (e.g. /create_order) but each RPC carries a version integer (V1); WebSocket streams are namespaced by version (v1.order, v1.book.s).
+idempotency:
+  supported: true
+  mechanism: client-order-id
+  detail: >-
+    Order creation supports client-supplied Client Order IDs (clientOrderId). A Client Order ID must be
+    supplied on create (error 2011) and overlapping/duplicate active client order IDs are rejected
+    (error 2012), giving order-level de-duplication. Transfers reject exact duplicate signed payloads
+    (error 4007). GRVT does not expose a generic Idempotency-Key header; de-duplication is per-resource.
+pagination:
+  style: cursor
+  detail: History endpoints (order_history, fill_history, trade_history, transfer_history, position_history) return a cursor for forward paging.
+rate_limiting:
+  supported: true
+  signal: HTTP 429 with error code 1006 (allocated rate limit for tier surpassed); limits are tier-based per account.
+  additional: error 2090 (max open orders exceeded), 1008 (IP not whitelisted).
+error_envelope:
+  shape: '{ code, message, status }'
+  format: grvt-error-code
+  see: errors/blue-square-group-limited-problem-types.yml
+request_signing:
+  detail: State-changing requests carry an ECDSA (secp256k1) signature over an EIP-712 payload; signatures have an expiry and a maximum allowed duration (errors 2001, 2004, 2008).
+environments:
+  - {name: prod, trading: trades.grvt.io, market_data: market-data.grvt.io, edge: edge.grvt.io}
+  - {name: testnet, trading: trades.testnet.grvt.io, market_data: market-data.testnet.grvt.io, edge: edge.testnet.grvt.io}

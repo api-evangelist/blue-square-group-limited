@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: derived
+source: https://github.com/gravity-technologies/api-spec
+note: Cross-cutting standards conformance derived from the GRVT api-spec and auth model. Not a provider compliance claim.
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: Auth is API-key login + request signing, not OAuth 2.0.
+  - id: openid-connect
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use a custom {code, message, status} envelope, not application/problem+json.
+  - id: eip-712-typed-signing
+    conforms: true
+    evidence: State-changing requests signed over EIP-712 typed data.
+  - id: ecdsa-secp256k1
+    conforms: true
+    evidence: Signature validation (V 27/28, R/S 64-char, low-S) per error codes 2005-2007.
+  - id: json-rpc-websocket
+    conforms: true
+    evidence: WebSocket streams use JSON-RPC subscribe/unsubscribe.
+  - id: rate-limit-headers
+    conforms: partial
+    evidence: HTTP 429 + error 1006 for tier rate limits; standard RateLimit headers not confirmed.
+  - id: zksync-l2-settlement
+    conforms: true
+    evidence: Settlement on a zkSync-based L2 (exchange-contract / zksync-era repos).

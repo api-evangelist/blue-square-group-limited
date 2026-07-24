@@ -1,0 +1,66 @@
+generated: '2026-07-18'
+method: derived
+source: https://github.com/gravity-technologies/api-spec/blob/main/src/codegen/apispec.json
+note: Entity-relationship graph derived from the GRVT api-spec structs and RPC request/response types. Relationships inferred from id-reference fields and nested struct membership.
+struct_count: 176
+entities:
+- name: Candlestick
+  relationships: []
+- name: Deposit
+  relationships: []
+- name: Fill
+  relationships:
+  - to: Order
+    kind: belongs_to
+    via: order_id
+  - to: SubAccount
+    kind: belongs_to
+    via: sub_account_id
+  - to: Instrument
+    kind: belongs_to
+    via: instrument
+- name: FundingAccountSummary
+  relationships: []
+- name: MiniTicker
+  relationships: []
+- name: Order
+  relationships:
+  - to: SubAccount
+    kind: belongs_to
+    via: sub_account_id
+  - to: OrderLeg
+    kind: has_many
+    via: legs
+  - to: OrderState
+    kind: has_one
+    via: state
+  - to: Instrument
+    kind: belongs_to
+    via: instrument
+- name: OrderLeg
+  relationships:
+  - to: Instrument
+    kind: belongs_to
+    via: instrument
+- name: OrderMetadata
+  relationships: []
+- name: OrderState
+  relationships: []
+- name: SpotBalance
+  relationships: []
+- name: SubAccount
+  relationships:
+  - to: Position
+    kind: has_many
+    via: positions
+  - to: SpotBalance
+    kind: has_many
+    via: spot_balances
+- name: Ticker
+  relationships: []
+- name: Trade
+  relationships: []
+- name: VaultInvestorSummary
+  relationships: []
+- name: Withdrawal
+  relationships: []

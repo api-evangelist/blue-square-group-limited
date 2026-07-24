@@ -1,0 +1,15 @@
+generated: '2026-07-18'
+method: derived
+source: https://github.com/gravity-technologies/api-spec ; https://api-docs.grvt.io/
+note: Versioning and deprecation posture derived from the GRVT api-spec. No public status page or published SLA was found.
+versioning:
+  scheme: rpc-version-integer
+  current: v1
+  detail: Each RPC carries a version integer (V1/V2, e.g. RPCBulkOrdersV2); WebSocket streams are version-namespaced (v1.*).
+deprecation:
+  policy_url: null
+  signal: In-band deprecation via error codes (e.g. 2242 "Split TPSL functionality not supported; you may be using a deprecated API").
+status_page: null
+sla:
+  url: null
+deprecated_operations: []
