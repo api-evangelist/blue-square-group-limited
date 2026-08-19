@@ -2,7 +2,9 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: https://github.com/gravity-technologies/api-spec
-note: No official hosted GRVT MCP server found. Candidate tool list derived one-per-RPC from the GRVT api-spec gateways. GRVT does publish native Agent Skills (see skills/) installable via the open skills ecosystem.
+note: No official hosted GRVT MCP server found. Candidate tool list derived one-per-RPC from the GRVT
+  api-spec gateways. GRVT does publish native Agent Skills (see skills/) installable via the open skills
+  ecosystem.
 server:
   name: grvt
   transport: http
@@ -151,7 +153,8 @@ tools:
   description: Trading RPC RPCVaultRedemptionQueueV1 (route /vault_view_redemption_queue, auth_required=True)
   source_operation: api-spec:Trading/vault_view_redemption_queue (RPCVaultRedemptionQueueV1)
 - name: vault_manager_investment_history
-  description: Trading RPC RPCVaultManagerInvestmentHistoryV1 (route /vault_manager_investor_history, auth_required=True)
+  description: Trading RPC RPCVaultManagerInvestmentHistoryV1 (route /vault_manager_investor_history,
+    auth_required=True)
   source_operation: api-spec:Trading/vault_manager_investor_history (RPCVaultManagerInvestmentHistoryV1)
 - name: get_authorized_builders
   description: Trading RPC RPCGetAuthorizedBuildersV1 (route /get_authorized_builders, auth_required=True)
@@ -159,3 +162,9 @@ tools:
 - name: builder_fill_history
   description: Trading RPC RPCBuilderFillHistoryV1 (route /builder_fill_history, auth_required=True)
   source_operation: api-spec:Trading/builder_fill_history (RPCBuilderFillHistoryV1)
+deployment:
+  mode: none
+  verified: derived
+  tools: 50
+  checked: '2026-08-12'
+  source: catalog MCP census
