@@ -43,6 +43,16 @@ tags:
 - Market Data
 - Blockchain
 - WebSocket
+- Financial-Services
+tags_raw:
+- Company
+- Cryptocurrency
+- Derivatives Exchange
+- Trading
+- Perpetual Futures
+- Market Data
+- Blockchain
+- WebSocket
 - Financial Services
 apis:
 - name: GRVT Market Data API
