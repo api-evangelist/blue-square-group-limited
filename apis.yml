@@ -11,6 +11,17 @@ description: >-
   API-key login with Ethereum-style ECDSA (secp256k1 / EIP-712) request signing and scoped session keys.
   First-party Python and JavaScript/TypeScript SDKs plus published agent skills round out the developer surface.
   Surfaced as a portfolio company of 500 Global and enriched into the API Evangelist network.
+deliveryModel:
+  model: library
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Library · distributed through package registries, no callable service
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
